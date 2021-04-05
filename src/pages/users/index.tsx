@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Button,
     Form,
+    message,
     Space,
 } from 'antd';
 import {
@@ -13,8 +14,10 @@ import {
     Table,
     FormItem,
 } from 'ra-lib';
-import config from 'src/commons/config-hoc';
+import config from 'commons/config-hoc';
 import EditModal from './EditModal';
+import { usePromise } from 'commons/utils';
+import { getUsers, UserEntity } from 'commons/api';
 
 export default config({
     path: '/users',
@@ -22,7 +25,7 @@ export default config({
     // 数据定义
     const [pageNum, setPageNum] = useState(1);
     const [pageSize, setPageSize] = useState(20);
-    const [dataSource, setDataSource] = useState([]);
+    const [dataSource, setDataSource] = useState<UserEntity[]>([]);
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [total, setTotal] = useState(0);
     const [visible, setVisible] = useState(false);
@@ -30,23 +33,29 @@ export default config({
     const [form] = Form.useForm();
 
     // 请求相关定义 只是定义，不会触发请求，调用相关函数，才会触发请求
-    const [loading, fetchUsers] = props.ajax.useGet('/mock/users');
-    const [deleting, deleteUsers] = props.ajax.useDel('/mock/users/:id', {successTip: '删除成功！', errorTip: '删除失败！'});
-    const [deletingOne, deleteUser] = props.ajax.useDel('/mock/users/:id', {successTip: '删除成功！', errorTip: '删除失败！'});
+    const [loading, fetchUsers] = usePromise(getUsers)
+    const [deleting, deleteUsers] = props.ajax.useDel('/mock/users/:id', { successTip: '删除成功！', errorTip: '删除失败！' });
+    const [deletingOne, deleteUser] = props.ajax.useDel('/mock/users/:id', { successTip: '删除成功！', errorTip: '删除失败！' });
 
     const columns = [
-        {title: '用户名', dataIndex: 'name', width: 200},
-        {title: '年龄', dataIndex: 'age', width: 200},
-        {title: '工作', dataIndex: 'job', width: 200},
-        {title: '职位', dataIndex: 'position', width: 200},
+        { title: '用户名', dataIndex: 'userName', width: 200 },
+        { title: '姓名', dataIndex: 'realName', width: 200 },
+        {
+            title: '生日', dataIndex: 'birthday', width: 200,
+            render: value => value ? (new Date(value)).toLocaleDateString() : ""
+        },
+        { title: '联系方式', dataIndex: 'contract', width: 200 },
         {
             title: '操作', dataIndex: 'operator', width: 100,
             render: (value, record) => {
-                const {id, name} = record;
+                const { id, name } = record;
                 const items = [
                     {
                         label: '编辑',
-                        onClick: () => setVisible(true) || setId(id),
+                        onClick: () => {
+                            setVisible(true)
+                            setId(id)
+                        },
                     },
                     {
                         label: '删除',
@@ -58,13 +67,16 @@ export default config({
                     },
                 ];
 
-                return <Operator items={items}/>;
+                return <Operator items={items} />;
             },
         },
     ];
 
     // 函数定义
-    async function handleSearch(options = {}) {
+    async function handleSearch(options: {
+        pageNum?: number,
+        pageSize?: number
+    } = {}) {
         if (loading) return;
 
         // 获取表单数据
@@ -78,11 +90,16 @@ export default config({
         params.pageSize = options.pageSize || pageSize;
 
         console.log('params:', params);
-        const res = await fetchUsers(params);
-        console.log('res:', res);
+        const resp = await (await fetchUsers({ page: pageNum, rows: pageSize, }, params.keyword ?? "")).data;
+        if (resp.success) {
+            const res = resp.data
+            setDataSource(res.rows);
+            setTotal(res?.total || 0);
+        } else if (resp.success === false) {
+            message.error(resp.message)
+        }
 
-        setDataSource(res?.list || []);
-        setTotal(res?.total || 0);
+
     }
 
     async function handleDelete(id) {
@@ -97,7 +114,7 @@ export default config({
 
         await batchDeleteConfirm(selectedRowKeys.length);
 
-        await deleteUsers({ids: selectedRowKeys});
+        await deleteUsers({ ids: selectedRowKeys });
         setSelectedRowKeys([]);
         await handleSearch();
     }
@@ -105,12 +122,12 @@ export default config({
     // 组件初始化完成之后，进行一次查询
     useEffect(() => {
         (async () => {
-            await handleSearch({pageNum, pageSize});
+            await handleSearch({ pageNum, pageSize });
         })();
     }, [pageNum, pageSize]);
 
     const formLayout = {
-        style: {width: 200},
+        style: { width: 200 },
     };
 
     const pageLoading = loading || deleting || deletingOne;
@@ -122,28 +139,21 @@ export default config({
                 <Form
                     layout="inline"
                     form={form}
-                    onFinish={() => handleSearch({pageNum: 1})}
+                    onFinish={() => handleSearch({ pageNum: 1 })}
                 >
                     <FormItem
                         {...formLayout}
-                        label="名称"
-                        name="name"
-                    />
-                    <FormItem
-                        {...formLayout}
-                        label="职位"
-                        name="job"
-                        options={[
-                            {value: 1, label: 1},
-                            {value: 2, label: 2},
-                        ]}
-                        onChange={() => handleSearch({pageNum: 1})}
+                        label="关键字"
+                        name="keyword"
                     />
                     <FormItem>
                         <Space>
                             <Button type="primary" htmlType="submit">查询</Button>
                             <Button onClick={() => form.resetFields()}>重置</Button>
-                            <Button type="primary" onClick={() => setVisible(true) || setId(null)}>添加</Button>
+                            <Button type="primary" onClick={() => {
+                                setVisible(true)
+                                setId(null)
+                            }}>添加</Button>
                             <Button danger disabled={disabledDelete} onClick={handleBatchDelete}>删除</Button>
                         </Space>
                     </FormItem>
@@ -177,7 +187,7 @@ export default config({
                 isEdit={id !== null}
                 onOk={async () => {
                     setVisible(false);
-                    await handleSearch({pageNum: 1});
+                    await handleSearch({ pageNum: 1 });
                 }}
                 onCancel={() => setVisible(false)}
             />

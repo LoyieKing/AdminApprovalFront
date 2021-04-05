@@ -9,7 +9,7 @@ const {
 const isDev = NODE_ENV === 'development';
 
 export default {
-    appName: 'React Admin',
+    appName: '行政审批系统',
     // 默认ajax url前缀
     ajaxPrefix: AJAX_PREFIX || '/api',
     // 默认ajax超时时间

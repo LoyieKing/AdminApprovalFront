@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
-import {Helmet} from 'react-helmet';
-import {Input, Button, Form} from 'antd';
-import {LockOutlined, UserOutlined} from '@ant-design/icons';
-import {setLoginUser, toHome} from 'src/commons';
+import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
+import { Input, Button, Form, Image, Popover } from 'antd';
+import { LockOutlined, ReloadOutlined, RobotOutlined, UserOutlined } from '@ant-design/icons';
+import { setLoginUser, toHome } from 'src/commons';
 import config from 'src/commons/config-hoc';
 import Banner from './banner/index';
 import './style.less';
+import { getAuthCode, login } from '../../commons/api';
+// import { getAuthCode } from 'src/commons/api';
 
 @config({
     path: '/login',
@@ -18,58 +20,64 @@ export default class Login extends Component {
         loading: false,
         message: '',
         isMount: false,
+        codeImage: null
     };
+
+    vcodeSession = "";
 
     componentDidMount() {
         // 开发时方便测试，填写表单
         if (process.env.NODE_ENV === 'development' || process.env.PREVIEW) {
-            this.form.setFieldsValue({userName: 'admin', password: '111'});
+            this.form.setFieldsValue({ userName: 'admin', password: '111' });
         }
 
-        setTimeout(() => this.setState({isMount: true}), 300);
+        this.getVerifyCodeImage();
+        setTimeout(() => this.setState({ isMount: true }), 300);
+    }
+
+    getVerifyCodeImage = async () => {
+        this.setState({ codeImage: null })
+        let resp = await getAuthCode()
+        var codeImage = window.URL.createObjectURL(resp.data)
+        console.log(resp.headers)
+        this.vcodeSession = resp.headers["vcode-session"]
+        this.setState({ codeImage })
     }
 
     handleSubmit = (values) => {
         if (this.state.loading) return;
 
-        const {userName, password} = values;
-        const params = {
-            userName,
-            password,
-        };
+        const { username, password, code } = values;
 
-        setLoginUser({
-            id: params.userName,
-            name: params.userName,
-        });
-        toHome();
 
-        /*
-        this.setState({loading: true, message: ''});
-        this.props.ajax.post('/mock/login', params, {errorTip: false})
+        this.setState({ loading: true, message: '' });
+        login(username, password, code, this.vcodeSession)
             .then(res => {
-                const {id, name} = res;
-                setLoginUser({
-                    id,     // 必须字段
-                    name,   // 必须字段
-                            // 其他字段按需添加
-                });
-                toHome();
+                if (res.data.success) {
+                    var token = res.data.data;
+                    console.log(token)
+                    let payloadStr = window.atob(token.split('.')[1])
+                    let payload = JSON.parse(payloadStr)
+                    setLoginUser({ username, password, token, id: payload.id })
+                    toHome();
+                } else {
+                    this.setState({ message: res.data.message })
+                }
             })
-            .catch(() => this.setState({message: '用户名或密码错误！'}))
-            .finally(() => this.setState({loading: false}));
-        */
+            .catch((res) => this.setState({ message: '网络错误！' }))
+            .finally(() => this.setState({ loading: false }));
+
     };
 
     render() {
-        const {loading, message, isMount} = this.state;
+        const { loading, message, isMount } = this.state;
         const formItemStyleName = isMount ? 'form-item active' : 'form-item';
 
         return (
             <div styleName="root">
-                <Helmet title="欢迎登陆"/>
+                <Helmet title="欢迎登录" />
                 <div styleName="banner">
-                    <Banner/>
+                    <Banner />
                 </div>
                 <div styleName="box">
                     <Form
@@ -83,22 +91,46 @@ export default class Login extends Component {
                         </div>
                         <div styleName={formItemStyleName}>
                             <Form.Item
-                                name="userName"
-                                rules={[{required: true, message: '请输入用户名'}]}
+                                name="username"
+                                rules={[{ required: true, message: '请输入用户名' }]}
                             >
-                                <Input allowClear autoFocus prefix={<UserOutlined className="site-form-item-icon"/>} placeholder="用户名"/>
+                                <Input allowClear autoFocus prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名" />
                             </Form.Item>
                         </div>
                         <div styleName={formItemStyleName}>
                             <Form.Item
                                 name="password"
-                                rules={[{required: true, message: '请输入密码'}]}
+                                rules={[{ required: true, message: '请输入密码' }]}
                             >
-                                <Input.Password prefix={<LockOutlined className="site-form-item-icon"/>} placeholder="密码"/>
+                                <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} placeholder="密码" />
                             </Form.Item>
                         </div>
                         <div styleName={formItemStyleName}>
-                            <Form.Item shouldUpdate={true} style={{marginBottom: 0}}>
+                            <Form.Item
+                                name="code"
+                                rules={[{ required: true, message: '请输入验证码' }]}
+                            >
+                                <Input
+                                    prefix={<RobotOutlined className="site-form-item-icon" />}
+                                    placeholder="验证码"
+                                    suffix={<Popover
+                                        content={<Button
+                                            shape="circle"
+                                            icon={<ReloadOutlined />}
+                                            type="primary"
+                                            onClick={() => this.getVerifyCodeImage()}
+                                            loading={this.state.codeImage === null} />}
+                                        placement="right"
+                                        trigger="hover">
+                                        <Image
+                                            src={this.state.codeImage}
+                                            className="site-form-item-icon"
+                                            placeholder />
+                                    </Popover>} />
+                            </Form.Item>
+                        </div>
+                        <div styleName={formItemStyleName}>
+                            <Form.Item shouldUpdate={true} style={{ marginBottom: 0 }}>
                                 {() => (
                                     <Button
                                         styleName="submit-btn"
@@ -107,7 +139,7 @@ export default class Login extends Component {
                                         htmlType="submit"
                                         disabled={
                                             !this.form?.isFieldsTouched(true) ||
-                                            this.form?.getFieldsError().filter(({errors}) => errors.length).length
+                                            this.form?.getFieldsError().filter(({ errors }) => errors.length).length
                                         }
                                     >
                                         登录

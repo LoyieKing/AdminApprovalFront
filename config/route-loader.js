@@ -3,18 +3,19 @@ const path = require('path');
 const fs = require('fs');
 const { pathToRegexp } = require('path-to-regexp');
 
-module.exports = function() {
+module.exports = function () {
     // 路由文件所在目录
     const routePagePath = path.resolve(__dirname, '../src/pages');
 
     // 路由文件
-    const pages = path.join(routePagePath, '/**/*.jsx');
+    const jsxPages = path.join(routePagePath, '/**/*.jsx');
+    const tsxPages = path.join(routePagePath, '/**/*.tsx');
 
     // 将路由页面所在目录添加到依赖当中，当有文件变化，会触发这个loader
     this.addContextDependency(routePagePath);
 
     // 获取所有的文件名
-    const fileNames = globby.sync(pages, { ignore: [], absolute: true });
+    const fileNames = globby.sync([jsxPages, tsxPages], { ignore: [], absolute: true });
     const result = {};
 
     fileNames.forEach(fileName => {
@@ -33,9 +34,9 @@ module.exports = function() {
 // 检测路由配置冲突
 function checkPath(result) {
     const arr = Object.entries(result);
-    for (const [ filePath, config ] of arr) {
+    for (const [filePath, config] of arr) {
         const { path } = config;
-        const exit = arr.find(([ f, c ]) => {
+        const exit = arr.find(([f, c]) => {
             return f !== filePath && (c.path === path || pathToRegexp(c.path).exec(path) || pathToRegexp(path).exec(c.path));
         });
         if (exit) {
@@ -70,7 +71,7 @@ function removeComments(codes) {
         let uniqueStr = 'QUOTATIONMARKS' + Math.floor(Math.random() * 10000);
 
         let index = 0;
-        replacedCodes = codes.replace(regQuotation, function(match) {
+        replacedCodes = codes.replace(regQuotation, function (match) {
             let s = uniqueStr + (index++);
             matchedObj[s] = match;
             return s;
@@ -184,7 +185,7 @@ function getRouteFileContent(config) {
     const keepAlives = [];
     const routes = [];
 
-    Object.entries(config).forEach(([ filePath, { path, keepAlive, noAuth, noFrame } ]) => {
+    Object.entries(config).forEach(([filePath, { path, keepAlive, noAuth, noFrame }]) => {
         if (!path) return;
 
         if (noFrame === 'true') noFrames.push(`'${path}'`);

@@ -1,18 +1,44 @@
-import {storage} from 'ra-lib';
-import cfg from 'src/config';
+import { storage } from 'ra-lib';
+import cfg from 'config';
 
-const {baseName} = cfg;
+const { baseName } = cfg;
 const sessionStorage = window.sessionStorage;
 
 const LOGIN_USER_STORAGE_KEY = 'login-user';
 
+type LoginUserInfo = {
+    /**
+     * 用户id
+     */
+    id: number
+
+    /**
+     * 用户名
+     */
+    username: string
+
+    /**
+     * 头像
+     */
+    avatar?: string
+
+    /**
+     * jwt token
+     */
+    token: string
+
+    /**
+     * 用户权限
+     */
+    permissions?: string[]
+
+    [other: string]: any
+}
 
 /**
  * 浏览器跳转，携带baseName
- * @param href
- * @returns {string|*}
  */
-export function locationHref(href) {
+export function locationHref(href: string): string {
     if (href?.startsWith('http')) return window.location.href = href;
 
     return window.location.href = `${baseName}${href}`;
@@ -20,9 +46,8 @@ export function locationHref(href) {
 
 /**
  * 判断是否有权限
- * @param code
  */
-export function hasPermission(code) {
+export function hasPermission(code: string): boolean {
     const loginUser = getLoginUser();
     return loginUser?.permissions?.includes(code);
 }
@@ -31,26 +56,16 @@ export function hasPermission(code) {
  * 设置当前用户信息
  * @param loginUser 当前登录用户信息
  */
-export function setLoginUser(loginUser = {}) {
-    // 将用户属性在这里展开，方便查看系统都用到了那些用户属性
-    const {id, name, avatar, token, permissions, ...others} = loginUser;
-    const userStr = JSON.stringify({
-        id,             // 用户id 必须
-        name,           // 用户名 必须
-        avatar,         // 用头像 非必须
-        token,          // 登录凭证 非必须 ajax请求有可能会用到，也许是cookie
-        permissions,    // 用户权限
-        ...others,      // 其他属性
-    });
+export function setLoginUser(loginUser: LoginUserInfo) {
 
+    const userStr = JSON.stringify(loginUser);
     sessionStorage.setItem(LOGIN_USER_STORAGE_KEY, userStr);
 }
 
 /**
  * 获取当前用户信息
- * @returns {any}
  */
-export function getLoginUser() {
+export function getLoginUser(): LoginUserInfo | null {
     const loginUser = sessionStorage.getItem(LOGIN_USER_STORAGE_KEY);
 
     return loginUser ? JSON.parse(loginUser) : null;
@@ -60,7 +75,7 @@ export function getLoginUser() {
  * 判断用户是否登录 前端简单通过登录用户是否存在来判断
  * @returns {boolean}
  */
-export function isLogin() {
+export function isLogin(): boolean {
     // 如果当前用户存在，就认为已经登录了
     return !!getLoginUser();
 }
