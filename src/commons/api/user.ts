@@ -1,57 +1,8 @@
 import { AxiosResponse } from "axios";
-import Axios from 'axios';
 import { getLoginUser } from "commons";
+import axios from './axios';
+import { HttpResponse, PaginationQuery } from "./types";
 
-
-const BASE_URL = "https://localhost:9246/api/"
-
-const axios = Axios.create({
-    baseURL: BASE_URL,
-    withCredentials: true //接收Set-Cookie
-})
-
-axios.interceptors.request.use(req => {
-    let user = getLoginUser()
-    let token = user?.token
-    if (token) {
-        req.headers["Authorization"] = "Bear " + token
-    }
-    return req
-})
-
-type Response<T> = { success: true, data: T } | { success: false, message: string }
-type HttpResponse<T = any> = Promise<AxiosResponse<Response<T>>>
-
-export type Pagination = {
-    /**
-     * 一页的行数
-     */
-    rows: number;
-    /**
-     * 当前页
-     */
-    page: number;
-    /**
-     * 总页数
-     */
-    total: number;
-
-    /**
-     * 总记录数
-     */
-    records: number;
-}
-
-export type PaginationQuery = {
-    /**
-     * 一页的行数
-     */
-    rows: number;
-    /**
-     * 当前页
-     */
-    page: number;
-}
 
 /**
  * 获取验证码
@@ -106,4 +57,12 @@ export function getUser(id: number): HttpResponse<UserEntity> {
 
 export function updateUser(entity: UserEntity): HttpResponse<never> {
     return axios.post(`sysmanage/user/update`, entity)
+}
+
+export function deleteUser(id: number): HttpResponse<never> {
+    return axios.post(`sysmanage/user/delete?id=${id}`)
+}
+
+export function deleteUsers(ids: number[]): HttpResponse<never> {
+    return axios.post(`sysmanage/user/deletes`, ids)
 }

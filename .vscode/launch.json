@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-msedge",
+            "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:13957/login",
+            "url": "http://localhost:8080/login",
             "webRoot": "${workspaceFolder}"
         }
     ]

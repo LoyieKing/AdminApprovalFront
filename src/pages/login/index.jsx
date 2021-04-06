@@ -6,7 +6,7 @@ import { setLoginUser, toHome } from 'src/commons';
 import config from 'src/commons/config-hoc';
 import Banner from './banner/index';
 import './style.less';
-import { getAuthCode, login } from '../../commons/api';
+import { getAuthCode, login } from '../../commons/api/user';
 // import { getAuthCode } from 'src/commons/api';
 
 @config({
@@ -51,7 +51,7 @@ export default class Login extends Component {
 
 
         this.setState({ loading: true, message: '' });
-        login(username, password, code, this.vcodeSession)
+        login(username, password, code, this.vcodeSession??"")
             .then(res => {
                 if (res.data.success) {
                     var token = res.data.data;

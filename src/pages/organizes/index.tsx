@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 import { Icon } from 'ra-lib';
-import config from 'src/commons/config-hoc';
+import config from 'commons/config-hoc';
 import { PageContent } from 'ra-lib';
 import { tree } from 'ra-lib';
 import { Table, ToolBar, Operator } from 'ra-lib';
 import EditModal, { targetOptions } from './EditModal';
 import BatchAddModal from './BatchAddModal';
-import getMenus from 'src/menus';
 import './style.less';
+import { getOrganizes, Organize } from 'commons/api/organize';
 
 @config({
-    path: '/menus',
+    path: '/organizes',
 })
 export default class index extends Component {
     state = {
@@ -21,11 +21,12 @@ export default class index extends Component {
         batchAddVisible: false,
         record: {},
         iconVisible: false,
+        data: []
     };
 
     columns = [
         {
-            title: '名称', dataIndex: 'text', key: 'text', width: 300,
+            title: '名称', dataIndex: 'name', key: 'text', width: 300,
             render: (value, record) => {
                 const { icon } = record;
 
@@ -103,30 +104,25 @@ export default class index extends Component {
         this.handleSearch();
     }
 
+    mapTree(data: Organize[], parent?: Organize) {
+        return data.map(item => ({ key: item.id, parentKey: parent?.id, children: this.mapTree(item.subOrganizes, item), ...item }))
+    }
+
     handleSearch() {
         this.setState({ loading: true });
         // this.props.ajax
         //     .get('/menus')
-        getMenus()
-            .then(res => {
-                const menus = res.map(item => ({ key: item.id, parentKey: item.parentId, ...item }));
-                // 菜单根据order 排序
-                const orderedData = [...menus].sort((a, b) => {
-                    const aOrder = a.order || 0;
-                    const bOrder = b.order || 0;
+        getOrganizes()
+            .then(resp => {
+                const data = resp.data
+                if (data.success === false) {
+                    message.error(data.message)
+                }
+                else if (data.success) {
+                    const menus = this.mapTree(data.data)
+                    this.setState({ menus })
+                }
 
-                    // 如果order都不存在，根据 text 排序
-                    if (!aOrder && !bOrder) {
-                        return a.text > b.text ? 1 : -1;
-                    }
-
-                    return bOrder - aOrder;
-                });
-
-                const menuTreeData = tree.convertToTree(orderedData);
-                console.log(menuTreeData)
-
-                this.setState({ menus: menuTreeData });
             })
             .finally(() => this.setState({ loading: false }));
     }
@@ -138,13 +134,13 @@ export default class index extends Component {
     handleDeleteNode = (record) => {
         const { id } = record;
         this.setState({ loading: true });
-        this.props.ajax
-            .del(`/menus/${id}`)
-            .then(() => {
-                this.setState({ visible: false });
-                this.handleSearch();
-            })
-            .finally(() => this.setState({ loading: false }));
+        // this.props.ajax
+        //     .del(`/menus/${id}`)
+        //     .then(() => {
+        //         this.setState({ visible: false });
+        //         this.handleSearch();
+        //     })
+        //     .finally(() => this.setState({ loading: false }));
     };
 
     render() {

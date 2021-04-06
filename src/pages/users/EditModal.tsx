@@ -4,7 +4,7 @@ import config from 'commons/config-hoc';
 import { ModalContent, FormItem } from 'ra-lib';
 import { useGet, usePost, usePut } from 'commons/ajax';
 import { usePromise } from 'commons/utils';
-import { getUser, updateUser } from 'commons/api';
+import { getUser, updateUser } from 'commons/api/user';
 import moment from 'moment';
 
 const formLayout = {

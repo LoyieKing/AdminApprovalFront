@@ -10,22 +10,22 @@ import {
     batchDeleteConfirm,
     Operator,
     Pagination,
-    QueryBar,
+    ToolBar,
     Table,
     FormItem,
 } from 'ra-lib';
 import config from 'commons/config-hoc';
 import EditModal from './EditModal';
 import { usePromise } from 'commons/utils';
-import { deleteUser, deleteUsers, getUsers, UserEntity } from 'commons/api/user';
+import { deleteOrganizeCat, getOrganizeCats, OrganizeCat } from 'commons/api/organize';
 
 export default config({
-    path: '/users',
+    path: '/organize/cat',
 })((props) => {
     // 数据定义
     const [pageNum, setPageNum] = useState(1);
-    const [pageSize, setPageSize] = useState(20);
-    const [dataSource, setDataSource] = useState<UserEntity[]>([]);
+    const [pageSize, setPageSize] = useState(100);
+    const [dataSource, setDataSource] = useState<OrganizeCat[]>([]);
     const [selectedRowKeys, setSelectedRowKeys] = useState<number[]>([]);
     const [total, setTotal] = useState(0);
     const [visible, setVisible] = useState(false);
@@ -33,22 +33,22 @@ export default config({
     const [form] = Form.useForm();
 
     // 请求相关定义 只是定义，不会触发请求，调用相关函数，才会触发请求
-    const [loading, fetchUsers] = usePromise(getUsers)
-    const [deleting, deleteUsersAsync] = usePromise(deleteUsers)
-    const [deletingOne, deleteUserAsync] = usePromise(deleteUser)
+    const [loading, fetchOrganizeCatsAsync] = usePromise(getOrganizeCats)
+    const [deleting, deleteOrganizeCatsAsync] = usePromise(deleteOrganizeCat)
 
     const columns = [
-        { title: '用户名', dataIndex: 'userName', width: 200 },
-        { title: '姓名', dataIndex: 'realName', width: 200 },
+        { title: '组织类型名', dataIndex: 'name', width: 200 },
         {
-            title: '生日', dataIndex: 'birthday', width: 200,
-            render: value => value ? (new Date(value)).toLocaleDateString() : ""
+            title: '组织类型', dataIndex: 'category', width: 200,
+            render: (value, records) => {
+                if (value === 0) return "长期"
+                else if (value === 1) return "短期"
+            }
         },
-        { title: '联系方式', dataIndex: 'contract', width: 200 },
         {
             title: '操作', dataIndex: 'operator', width: 100,
             render: (value, record) => {
-                const { id, userName } = record;
+                const { id, name } = record;
                 const items = [
                     {
                         label: '编辑',
@@ -61,7 +61,7 @@ export default config({
                         label: '删除',
                         color: 'red',
                         confirm: {
-                            title: `您确定删除"${userName}"?`,
+                            title: `您确定删除"${name}"?`,
                             onConfirm: () => handleDelete(id),
                         },
                     },
@@ -73,48 +73,26 @@ export default config({
     ];
 
     // 函数定义
-    async function handleSearch(options: {
-        pageNum?: number,
-        pageSize?: number
-    } = {}) {
+    async function handleSearch() {
         if (loading) return;
 
-        // 获取表单数据
-        const values = form.getFieldsValue();
-        const params = {
-            ...values,
-        };
-
-        // 翻页信息优先从参数中获取
-        params.pageNum = options.pageNum || pageNum;
-        params.pageSize = options.pageSize || pageSize;
-
-        console.log('params:', params);
-        const resp = await (await fetchUsers({ page: pageNum, rows: pageSize, }, params.keyword ?? "")).data;
+        const resp = await (await fetchOrganizeCatsAsync()).data;
         if (resp.success) {
             const res = resp.data
-            setDataSource(res.rows);
-            setTotal(res?.total || 0);
+            setDataSource(res);
+            setTotal(res.length);
         } else if (resp.success === false) {
             message.error(resp.message)
         }
 
-
     }
 
-    async function handleDelete(id: number) {
-        if (deletingOne) return;
-
-        await deleteUserAsync(id);
-        await handleSearch();
-    }
-
-    async function handleBatchDelete() {
+    async function handleDelete(ids: number[]) {
         if (deleting) return;
 
-        await batchDeleteConfirm(selectedRowKeys.length);
+        await batchDeleteConfirm(ids.length);
 
-        await deleteUsers(selectedRowKeys);
+        await deleteOrganizeCatsAsync(ids);
         setSelectedRowKeys([]);
         await handleSearch();
     }
@@ -122,7 +100,7 @@ export default config({
     // 组件初始化完成之后，进行一次查询
     useEffect(() => {
         (async () => {
-            await handleSearch({ pageNum, pageSize });
+            await handleSearch();
         })();
     }, [pageNum, pageSize]);
 
@@ -130,35 +108,20 @@ export default config({
         style: { width: 200 },
     };
 
-    const pageLoading = loading || deleting || deletingOne;
+    const pageLoading = loading || deleting;
     const disabledDelete = !selectedRowKeys?.length || pageLoading;
 
     return (
         <PageContent loading={pageLoading}>
-            <QueryBar>
-                <Form
-                    layout="inline"
-                    form={form}
-                    onFinish={() => handleSearch({ pageNum: 1 })}
-                >
-                    <FormItem
-                        {...formLayout}
-                        label="关键字"
-                        name="keyword"
-                    />
-                    <FormItem>
-                        <Space>
-                            <Button type="primary" htmlType="submit">查询</Button>
-                            <Button onClick={() => form.resetFields()}>重置</Button>
-                            <Button type="primary" onClick={() => {
-                                setVisible(true)
-                                setId(null)
-                            }}>添加</Button>
-                            <Button danger disabled={disabledDelete} onClick={handleBatchDelete}>删除</Button>
-                        </Space>
-                    </FormItem>
-                </Form>
-            </QueryBar>
+            <ToolBar>
+                <Space>
+                    <Button type="primary" onClick={() => {
+                        setVisible(true)
+                        setId(null)
+                    }}>添加</Button>
+                    <Button danger disabled={disabledDelete} onClick={() => handleDelete(selectedRowKeys)}>删除</Button>
+                </Space>
+            </ToolBar>
             <Table
                 rowSelection={{
                     selectedRowKeys,
@@ -187,7 +150,7 @@ export default config({
                 isEdit={id !== null}
                 onOk={async () => {
                     setVisible(false);
-                    await handleSearch({ pageNum: 1 });
+                    await handleSearch();
                 }}
                 onCancel={() => setVisible(false)}
             />
