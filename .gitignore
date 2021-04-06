@@ -24,7 +24,6 @@ catalina*
 # production
 /build
 /dist
-/public
 
 /local
 
