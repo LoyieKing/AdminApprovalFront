@@ -62,7 +62,7 @@ export default config({
                         color: 'red',
                         confirm: {
                             title: `您确定删除"${name}"?`,
-                            onConfirm: () => handleDelete(id),
+                            onConfirm: () => handleDelete([id], false),
                         },
                     },
                 ];
@@ -87,10 +87,11 @@ export default config({
 
     }
 
-    async function handleDelete(ids: number[]) {
+    async function handleDelete(ids: number[], confirm: boolean = true) {
         if (deleting) return;
 
-        await batchDeleteConfirm(ids.length);
+        if (confirm)
+            await batchDeleteConfirm(ids.length);
 
         await deleteOrganizeCatsAsync(ids);
         setSelectedRowKeys([]);

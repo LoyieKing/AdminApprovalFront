@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios"
 
 
 export type Response<T> = { success: true, data: T } | { success: false, message: string }
-export type HttpResponse<T = any> = Promise<AxiosResponse<Response<T>>>
+export type HttpResponse<T = never> = Promise<AxiosResponse<Response<T>>>
 
 
 export type Pagination = {

@@ -5,7 +5,8 @@ import { HttpResponse } from "./types";
 export type Organize = {
     id: number
     name: string
-    categoryId: string
+    icon?: string
+    categoryId: number
     subOrganizes: Organize[]
 }
 
@@ -37,10 +38,18 @@ export function updateOrganizeCat(id: number, name: string, cat: number): HttpRe
     })
 }
 
-export function deleteOrganizeCat(ids: number[]): HttpResponse<never> {
+export function deleteOrganizeCat(ids: number[]): HttpResponse<never> { 
     return axios.post(`sysmanage/OrganizeCat/delete`, ids)
 }
 
 export function getOrganizes(): HttpResponse<Organize[]> {
     return axios.get("sysmanage/organize")
+}
+
+export function updateOrganize(id: number, name: string, cat: number, parent: number): HttpResponse<never> {
+    return axios.post("sysmanage/organize/update", undefined, { params: { id, name, cat, parent } })
+}
+
+export function deleteOrganize(id: number): HttpResponse<never> {
+    return axios.post("sysmanage/organize/delete", undefined, { params: { id } })
 }

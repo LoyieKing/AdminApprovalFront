@@ -351,12 +351,8 @@ module.exports = function (webpackEnv) {
                                 eslintPath: require.resolve('eslint'),
                                 resolvePluginsRelativeTo: __dirname,
                                 extends: ['react-app', 'react-app/jest'],
-                                plugins: ['@typescript-eslint', 'prettier'],
+                                plugins: ['@typescript-eslint'],
                                 parser: '@typescript-eslint/parser',
-                                rules: {
-                                    'prettier/prettier': 'error',
-                                    'prefer-const': 'error',
-                                }
                             },
                             loader: require.resolve('eslint-loader'),
                         },

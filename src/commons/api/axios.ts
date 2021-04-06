@@ -8,8 +8,8 @@ const axios = Axios.create({
 })
 
 axios.interceptors.request.use(req => {
-    let user = getLoginUser()
-    let token = user?.token
+    const user = getLoginUser()
+    const token = user?.token
     if (token) {
         req.headers["Authorization"] = "Bear " + token
     }

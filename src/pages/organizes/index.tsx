@@ -8,7 +8,9 @@ import { Table, ToolBar, Operator } from 'ra-lib';
 import EditModal, { targetOptions } from './EditModal';
 import BatchAddModal from './BatchAddModal';
 import './style.less';
-import { getOrganizes, Organize } from 'commons/api/organize';
+import { deleteOrganize, getOrganizeCats, getOrganizes, Organize, OrganizeCat } from 'commons/api/organize';
+import { purifyResponse } from 'commons/utils';
+import { TableDataSource } from 'commons/types';
 
 @config({
     path: '/organizes',
@@ -21,12 +23,13 @@ export default class index extends Component {
         batchAddVisible: false,
         record: {},
         iconVisible: false,
-        data: []
+        data: null as (Organize & { parentKey: number }) & { cats: OrganizeCat[] },
+        cats: [] as OrganizeCat[]
     };
 
-    columns = [
+    columns: TableDataSource<Organize> = [
         {
-            title: '名称', dataIndex: 'name', key: 'text', width: 300,
+            title: '名称', dataIndex: 'name', key: 'categoryId', width: 300,
             render: (value, record) => {
                 const { icon } = record;
 
@@ -35,40 +38,22 @@ export default class index extends Component {
                 return value;
             },
         },
-        { title: '基础路径', dataIndex: 'basePath', key: 'basePath', width: 150 },
-        { title: '路径', dataIndex: 'path', key: 'path' },
-        { title: 'url', dataIndex: 'url', key: 'url', width: 100 },
         {
-            title: 'target', dataIndex: 'target', key: 'target', width: 60,
-            render: value => {
-                const option = targetOptions.find(item => item.value === value);
-
-                return option?.label;
-            },
-        },
-        {
-            title: '类型', dataIndex: 'type', key: 'type', width: 60,
+            title: '组织类型', dataIndex: 'categoryId', key: 'categoryId', width: 150,
             render: (value, record) => {
-                const { url } = record;
-                if (url) return <span style={{ color: 'purple' }}>外站</span>;
-                if (value === '1') return <span style={{ color: 'green' }}>菜单</span>;
-                if (value === '2') return <span style={{ color: 'orange' }}>功能</span>;
-
-                return <span style={{ color: 'green' }}>菜单</span>;
-            },
+                const cat = this.state.cats.find(it => it.id == value)
+                return cat?.name ?? value
+            }
         },
-        // { title: '功能编码', dataIndex: 'code', key: 'code', width: 100 },
-        { title: '排序', dataIndex: 'order', key: 'order', width: 60 },
         {
             title: '操作', dataIndex: 'operator', key: 'operator', width: 180,
             render: (value, record) => {
                 // 要有type
-                const { type = '1' } = record;
                 const items = [
                     {
                         label: '编辑',
                         icon: 'form',
-                        onClick: () => this.setState({ data: { ...record, type }, visible: true }),
+                        onClick: () => this.setState({ data: { ...record }, visible: true }),
                     },
                     {
                         label: '删除',
@@ -82,17 +67,12 @@ export default class index extends Component {
                     {
                         label: '添加子菜单',
                         icon: 'folder-add',
-                        onClick: () => this.setState({ data: { parentKey: record.key, type: '1' }, visible: true }),
-                    },
-                    {
-                        label: '添加子功能',
-                        icon: 'file-add',
-                        onClick: () => this.setState({ data: { parentKey: record.key, type: '2' }, visible: true }),
+                        onClick: () => this.setState({ data: { parentKey: record.id }, visible: true }),
                     },
                     {
                         label: '批量添加子菜单',
                         icon: 'bars',
-                        onClick: () => this.setState({ data: { parentKey: record.key }, batchAddVisible: true }),
+                        onClick: () => this.setState({ data: { parentKey: record.id }, batchAddVisible: true }),
                     },
                 ];
                 return <Operator items={items} />;
@@ -102,6 +82,10 @@ export default class index extends Component {
 
     componentDidMount() {
         this.handleSearch();
+        getOrganizeCats().then(resp => {
+            const data = purifyResponse(resp.data)
+            this.setState({ cats: data })
+        })
     }
 
     mapTree(data: Organize[], parent?: Organize) {
@@ -114,15 +98,9 @@ export default class index extends Component {
         //     .get('/menus')
         getOrganizes()
             .then(resp => {
-                const data = resp.data
-                if (data.success === false) {
-                    message.error(data.message)
-                }
-                else if (data.success) {
-                    const menus = this.mapTree(data.data)
-                    this.setState({ menus })
-                }
-
+                const data = purifyResponse(resp.data) ?? []
+                const menus = this.mapTree(data)
+                this.setState({ menus })
             })
             .finally(() => this.setState({ loading: false }));
     }
@@ -131,16 +109,13 @@ export default class index extends Component {
         this.setState({ data: { type: '1' }, visible: true });
     };
 
-    handleDeleteNode = (record) => {
+    handleDeleteNode = async (record) => {
         const { id } = record;
         this.setState({ loading: true });
-        // this.props.ajax
-        //     .del(`/menus/${id}`)
-        //     .then(() => {
-        //         this.setState({ visible: false });
-        //         this.handleSearch();
-        //     })
-        //     .finally(() => this.setState({ loading: false }));
+        let resp = await deleteOrganize(id)
+        purifyResponse(resp.data)
+        this.handleSearch()
+        this.setState({ loading: false })
     };
 
     render() {
@@ -167,6 +142,7 @@ export default class index extends Component {
                 <EditModal
                     visible={visible}
                     data={data}
+                    cats={this.state.cats}
                     onOk={() => this.setState({ visible: false }, this.handleSearch)}
                     onCancel={() => this.setState({ visible: false })}
                 />
