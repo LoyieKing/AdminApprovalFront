@@ -4,15 +4,7 @@ import { FormElement, FormRow, IconPicker, ModalContent } from 'ra-lib';
 import config from 'commons/config-hoc';
 import { Organize, OrganizeCat, updateOrganize } from 'commons/api/organize';
 import { FormInstance } from 'antd/lib/form/Form';
-import { Option } from 'antd/lib/mentions';
 import { purifyResponse } from 'commons/utils';
-
-export const targetOptions = [
-    { value: '', label: '项目内部窗口' },
-    { value: '_self', label: '替换当前窗口' },
-    { value: '_blank', label: '打开新窗口' },
-];
-
 
 type EditModalProp = {
     visible: boolean
@@ -102,7 +94,7 @@ export default class EditModal extends Component<EditModalProp> {
                         </Col>
                         <Col flex="1">
                             <FormElement {...formProps} label="组织类型" name="categoryId" required>
-                                <Select>
+                                <Select showSearch filterOption optionFilterProp="children">
                                     {this.props.cats?.map(cat => <Select.Option value={cat.id.toString()} >{cat.name}</Select.Option>)}
                                 </Select>
                             </FormElement>

@@ -5,7 +5,7 @@ import config from 'commons/config-hoc';
 import { PageContent } from 'ra-lib';
 import { tree } from 'ra-lib';
 import { Table, ToolBar, Operator } from 'ra-lib';
-import EditModal, { targetOptions } from './EditModal';
+import EditModal from './EditModal';
 import BatchAddModal from './BatchAddModal';
 import './style.less';
 import { deleteOrganize, getOrganizeCats, getOrganizes, Organize, OrganizeCat } from 'commons/api/organize';
