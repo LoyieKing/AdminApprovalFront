@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button, Form, Row, Col, FormInstance, message, Tag } from 'antd';
 import { PageContent } from 'ra-lib';
 import config from 'commons/config-hoc';
-import MenuSelect from 'pages/menus/MenuSelect';
 import {
     QueryBar,
     FormRow,
@@ -12,50 +11,58 @@ import {
 } from 'ra-lib';
 import EditModal from './EditModal';
 import './style.less';
-import { getOrganizeCats, OrganizeCat } from 'commons/api/organize';
-import { deleteRole, getRoles, Role, updateRole } from 'commons/api/role';
 import { purifyResponse } from 'commons/utils';
+import { ApprovalTable, deleteApprovalTable, getApprovalTables } from 'commons/api/approval/manage';
+import { getInfoClasses, InfoClass } from 'commons/api/approval/info/manage';
+import MenuSelect from 'pages/organizes/MenuSelect';
+
+
+const cats = [
+    {
+        name: "文字",
+        value: "text"
+    }, {
+        name: "图片",
+        value: "pic"
+    }, {
+        name: "时间",
+        value: "time"
+    }, {
+        name: "时间间隔",
+        value: "times"
+    },
+]
+
 
 @config({
-    path: '/roles',
+    path: '/approval/manage',
     ajax: true,
 })
-export default class UserCenter extends Component {
+export default class ApprovalInfoManage extends Component {
     state = {
         loading: false,     // 表格加载数据loading
-        dataSource: [] as Role[],     // 表格数据
+        dataSource: [] as ApprovalTable[],     // 表格数据
         deleting: false,    // 删除中loading
         visible: false,     // 添加、修改弹框
-        id: null,           // 需要修改的数据id
-        loadingRoleMenu: false, // 查询角色权限 loading标识
-        selectedKeys: [],   // 角色对应的菜单
-        selectedRoleId: undefined, // 当前选中角色
-        cats: [] as OrganizeCat[],
-        data: {} as Partial<Role>
+        data: {} as Partial<ApprovalTable>,
+        infoClasses: [] as InfoClass[],
+        selectedOrganizes: [] as number[],
+        selectTableId: 0
     };
 
     form = React.createRef<FormInstance>()
 
     columns = [
-        { title: '角色名称', dataIndex: 'name', width: 150 },
+        { title: '审批表', dataIndex: 'name', width: 150 },
+        { title: '类型', dataIndex: 'category', with: 150 },
         {
-            title: '组织类型', dataIndex: 'organizeCategoryId',
-            render: (value) => {
-                return this.state.cats.find(it => it.id == value)?.name ?? ""
-            }
-        },
-        { title: '级别', dataIndex: 'organizeDutyLevel' },
-        {
-            title: '审批类型', dataIndex: 'availableApprovals',
-            render: (value: string[]) => {
+            title: '字段', dataIndex: 'infoClasses',
+            render: (value: number[], record) => {
                 return <div>
-                    {
-                        value.map(it => <Tag style={{ margin: 4 }} color="blue">{it}</Tag>)
-                    }
+                    {value.map(id => <Tag color="blue">{this.state.infoClasses.find(it => it.id == id).name}</Tag>)}
                 </div>
             }
         },
-        { title: '描述', dataIndex: 'description' },
         {
             title: '操作', dataIndex: 'operator', width: 100,
             render: (value, record) => {
@@ -89,11 +96,10 @@ export default class UserCenter extends Component {
 
     componentDidMount() {
         this.handleSubmit({});
-
-        getOrganizeCats()
+        getInfoClasses()
             .then(resp => {
-                let cats = purifyResponse(resp.data)
-                this.setState({ cats })
+                const infoClasses = purifyResponse(resp.data)
+                this.setState({ infoClasses })
             })
     }
 
@@ -104,21 +110,20 @@ export default class UserCenter extends Component {
         };
 
         // 一般系统中，角色不会太多，不做分页查询了
-        this.setState({ loading: true });
-        getRoles()
+        this.setState({ loading: true })
+        getApprovalTables()
             .then(resp => {
                 const dataSource = purifyResponse(resp.data)
                 this.setState({ dataSource })
-                if (dataSource[0]) this.handleRowClick(dataSource[0])
             })
-            .finally(() => this.setState({ loading: false }));
+            .finally(() => this.setState({ loading: false }))
     };
 
     handleDelete = (id) => {
         if (this.state.deleting) return;
 
         this.setState({ deleting: true });
-        deleteRole(id)
+        deleteApprovalTable(id)
             .then(resp => {
                 if (resp.data.success) {
                     message.success("删除成功")
@@ -130,39 +135,17 @@ export default class UserCenter extends Component {
             .finally(() => this.setState({ deleting: false }))
     };
 
-    handleRowClick = (index) => {
-        const selectedData = this.state.dataSource[index]
-        const menus = selectedData?.availableMenus ?? []
-
-        this.setState({ selectedRoleId: selectedData?.id, selectedKeys: menus, data: selectedData })
-    };
-
-    handleSaveRoleMenu = () => {
-        const { selectedKeys } = this.state;
-
-        const data = this.state.data
-        data.availableMenus = selectedKeys;
-        this.setState({ loading: true });
-        updateRole(data)
-            .then(resp => {
-                if (resp.data.success) {
-                    message.success("保存角色权限成功！")
-                } else {
-                    purifyResponse(resp.data)
-                }
-            })
-            .finally(() => this.setState({ loading: false }))
-    };
+    handleRowClick(index: number) {
+        const selectData = this.state.dataSource[index]
+        this.setState({ selectTableId: selectData.id, })
+    }
 
     render() {
         const {
             loading,
             dataSource,
             visible,
-            id,
-            selectedRoleId,
-            selectedKeys,
-            loadingRoleMenu,
+            selectTableId,
         } = this.state;
 
         const formProps = {
@@ -170,16 +153,14 @@ export default class UserCenter extends Component {
             style: { paddingLeft: 16 },
         };
 
-        const selectedRoleName = dataSource.find(item => item.id === selectedRoleId)?.name;
-
         return (
-            <PageContent styleName="root" loading={loading || loadingRoleMenu}>
+            <PageContent styleName="root" loading={loading}>
                 <QueryBar>
                     <Form onFinish={this.handleSubmit} ref={this.form}>
                         <FormRow>
                             <FormElement
                                 {...formProps}
-                                label="角色名"
+                                label="信息名"
                                 name="name"
                             />
                             <FormElement layout>
@@ -187,18 +168,14 @@ export default class UserCenter extends Component {
                                 <Button onClick={() => this.form.current.resetFields()}>重置</Button>
                                 <Button type="primary" onClick={() => this.setState({ visible: true, data: {} })}>添加</Button>
                             </FormElement>
-                            <div className="role-menu-tip">
-                                {selectedRoleName ? <span>当前角色权限：「{selectedRoleName}」</span> : <span>请在左侧列表中选择一个角色！</span>}
-                                <Button disabled={!selectedRoleName} type="primary" onClick={this.handleSaveRoleMenu}>保存权限</Button>
-                            </div>
                         </FormRow>
                     </Form>
                 </QueryBar>
                 <Row>
-                    <Col span={14}>
+                    <Col flex="14">
                         <Table
                             rowClassName={record => {
-                                if (record.id === selectedRoleId) return 'role-table selected';
+                                if (record.id === selectTableId) return 'role-table selected';
 
                                 return 'role-table';
                             }}
@@ -213,15 +190,14 @@ export default class UserCenter extends Component {
                             }}
                         />
                     </Col>
-                    <Col span={10}>
-                        <MenuSelect
-                            value={selectedKeys}
-                            onChange={selectedKeys => this.setState({ selectedKeys })}
+                    <Col flex="10">
+                        <MenuSelect value={this.state.selectedOrganizes}
+                            onChange={(value) => this.setState({ selectedOrganizes: value })}
                         />
                     </Col>
                 </Row>
                 <EditModal
-                    cats={this.state.cats}
+                    infoClasses={this.state.infoClasses}
                     visible={visible}
                     data={this.state.data}
                     onOk={() => this.setState({ visible: false }, this.form.current.submit)}

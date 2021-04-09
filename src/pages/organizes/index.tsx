@@ -88,7 +88,8 @@ export default class index extends Component {
         })
     }
 
-    mapTree(data: Organize[], parent?: Organize) {
+    mapTree(data?: Organize[], parent?: Organize) {
+        if (!data || data.length == 0) return undefined
         return data.map(item => ({ key: item.id, parentKey: parent?.id, children: this.mapTree(item.subOrganizes, item), ...item }))
     }
 

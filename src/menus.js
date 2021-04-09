@@ -11,10 +11,18 @@ export default function getMenus(userId) {
     return Promise.resolve([
         { key: 'system', text: '系统管理', icon: 'user', order: 900 },
         { key: 'user', parentKey: 'system', text: '用户管理', icon: 'user', path: '/users', order: 900 },
-        { key: 'organizecat', parentKey: 'system', text: '组织类型管理', icon: 'align-left', path: '/organize/cat', order: 900 },
-        { key: 'organize', parentKey: 'system', text: '组织管理', icon: 'align-left', path: '/organizes', order: 900 },
+        { key: 'organize', parentKey: 'system', text: '组织管理', icon: 'align-left', order: 900 },
+        { key: 'organizemanage', parentKey: 'organize', text: '组织管理', icon: 'align-left', path: '/organizes', order: 900 },
+        { key: 'organizecatnamage', parentKey: 'organize', text: '组织类型管理', icon: 'align-left', path: '/organize/cat', order: 900 },
+
         { key: 'role', parentKey: 'system', text: '角色管理', icon: 'lock', path: '/roles', order: 900 },
-        { key: 'menu', parentKey: 'system', text: '菜单管理', icon: 'align-left', path: '/menus', order: 900 },
+
+        { key: 'approval', parentKey: 'system', text: '审批模板管理', icon: 'lock', order: 900 },
+        { key: 'approvalinfomanage', parentKey: 'approval', text: '信息模板管理', icon: 'lock', path: '/approval/info/manage', order: 900 },
+        { key: 'approvalmanage', parentKey: 'approval', text: '审批模板管理', icon: 'lock', path: '/approval/manage', order: 900 },
+
+
+        { key: 'menu', parentKey: 'system', text: '菜单查看', icon: 'align-left', path: '/menus', order: 900 },
 
         { key: 'other-site', text: '第三方网站', icon: 'ant-design', order: 800 },
         { key: 'antDesign', parentKey: 'other-site', text: 'Ant Design 官网', icon: 'ant-design', url: 'https://ant-design.gitee.io', target: '', order: 2000 },

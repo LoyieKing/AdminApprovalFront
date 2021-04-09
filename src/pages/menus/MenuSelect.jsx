@@ -29,7 +29,7 @@ export default class index extends Component {
             render: (value, record) => {
                 const { icon } = record;
 
-                if (icon) return <span><Icon type={icon}/> {value}</span>;
+                if (icon) return <span><Icon type={icon} /> {value}</span>;
 
                 return value;
             },
@@ -60,7 +60,7 @@ export default class index extends Component {
                 const menus = res.map(item => ({ key: item.id, parentKey: item.parentId, ...item }));
                 const allMenuKeys = menus.map(item => item.key);
                 // 菜单根据order 排序
-                const orderedData = [ ...menus ].sort((a, b) => {
+                const orderedData = [...menus].sort((a, b) => {
                     const aOrder = a.order || 0;
                     const bOrder = b.order || 0;
 
@@ -89,7 +89,7 @@ export default class index extends Component {
 
         const { key } = record;
 
-        let allKeys = [ ...value ];
+        let allKeys = [...value];
 
         // 全选 取消 子级
         const childrenKeys = tree.getGenerationKeys(menus, key);
@@ -102,7 +102,7 @@ export default class index extends Component {
             allKeys = allKeys.concat(...parentKeys);
         } else {
             // 子级全部删除
-            allKeys = allKeys.filter(item => !(([ key, ...childrenKeys ]).includes(item)));
+            allKeys = allKeys.filter(item => !(([key, ...childrenKeys]).includes(item)));
 
             // 判断父级状态 只要有后代选中就加入
             parentKeys.reverse().forEach(pk => {

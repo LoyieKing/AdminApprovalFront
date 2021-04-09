@@ -1,85 +1,79 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Button, message } from 'antd';
 import { Icon } from 'ra-lib';
-import config from 'src/commons/config-hoc';
+import config from 'commons/config-hoc';
+import { PageContent } from 'ra-lib';
 import { tree } from 'ra-lib';
-import { Table } from 'ra-lib';
-import getMenus from 'src/menus';
+import { Table, ToolBar, Operator } from 'ra-lib';
+import EditModal from './EditModal';
+import BatchAddModal from './BatchAddModal';
 import './style.less';
+import { deleteOrganize, getOrganizeCats, getOrganizes, Organize, OrganizeCat } from 'commons/api/organize';
+import { purifyResponse } from 'commons/utils';
+import { TableDataSource } from 'commons/types';
 
-@config({
-    ajax: true,
-})
-export default class index extends Component {
-    static propTypes = {
-        value: PropTypes.array,     // 选中的节点
-        onChange: PropTypes.func,   // 选择节点时，触发
-    };
 
+type MenuSelectProps = {
+    value: number[],
+    onChange?: (value: number[]) => void
+}
+
+@config()
+export default class MenuSelect extends Component<MenuSelectProps> {
     state = {
         loading: false,
         menus: [],
         allMenuKeys: [],
         expandedRowKeys: [],
+        cats: [] as OrganizeCat[],
     };
 
-    columns = [
+    columns: TableDataSource<Organize> = [
         {
-            title: '名称', dataIndex: 'text', key: 'text',
+            title: '名称', dataIndex: 'name', key: 'categoryId', width: 300,
             render: (value, record) => {
                 const { icon } = record;
 
-                if (icon) return <span><Icon type={icon}/> {value}</span>;
+                if (icon) return <span><Icon type={icon} /> {value}</span>;
 
                 return value;
             },
         },
         {
-            title: '类型', dataIndex: 'type', key: 'type', width: 80,
+            title: '组织类型', dataIndex: 'categoryId', key: 'categoryId', width: 150,
             render: (value, record) => {
-                const { url } = record;
-                if (url) return '站外菜单';
-                if (value === '1') return '站内菜单';
-                if (value === '2') return '功能';
-
-                return '菜单';
-            },
-        },
+                const cat = this.state.cats.find(it => it.id == value)
+                return cat?.name ?? value
+            }
+        }
     ];
 
     componentDidMount() {
         this.handleSearch();
+        getOrganizeCats().then(resp => {
+            const data = purifyResponse(resp.data)
+            this.setState({ cats: data })
+        })
+    }
+
+    mapTree(data: Organize[], parent?: Organize, keys?: number[]) {
+        if (!data || data.length == 0) return undefined
+        data.forEach(it => keys?.push(it.id))
+        return data.map(item => ({ key: item.id, parentKey: parent?.id, children: this.mapTree(item.subOrganizes, item), ...item }))
     }
 
     handleSearch() {
         this.setState({ loading: true });
         // this.props.ajax
         //     .get('/menus')
-        getMenus()
-            .then(res => {
-                const menus = res.map(item => ({ key: item.id, parentKey: item.parentId, ...item }));
-                const allMenuKeys = menus.map(item => item.key);
-                // 菜单根据order 排序
-                const orderedData = [ ...menus ].sort((a, b) => {
-                    const aOrder = a.order || 0;
-                    const bOrder = b.order || 0;
-
-                    // 如果order都不存在，根据 text 排序
-                    if (!aOrder && !bOrder) {
-                        return a.text > b.text ? 1 : -1;
-                    }
-
-                    return bOrder - aOrder;
-                });
-
-                const menuTreeData = tree.convertToTree(orderedData);
-
-                // 默认展开全部
-                const expandedRowKeys = menus.map(item => item.key);
-                this.setState({ menus: menuTreeData, allMenuKeys, expandedRowKeys });
+        getOrganizes()
+            .then(resp => {
+                const data = purifyResponse(resp.data) ?? []
+                const keys = [] as number[]
+                const menus = this.mapTree(data, undefined, keys)
+                this.setState({ menus, expandedRowKeys: keys })
             })
             .finally(() => this.setState({ loading: false }));
-
     }
 
 
@@ -87,9 +81,9 @@ export default class index extends Component {
         const { value = [] } = this.props;
         const { menus } = this.state;
 
-        const { key } = record;
+        const { id: key } = record;
 
-        let allKeys = [ ...value ];
+        let allKeys = [...value];
 
         // 全选 取消 子级
         const childrenKeys = tree.getGenerationKeys(menus, key);
@@ -102,7 +96,7 @@ export default class index extends Component {
             allKeys = allKeys.concat(...parentKeys);
         } else {
             // 子级全部删除
-            allKeys = allKeys.filter(item => !(([ key, ...childrenKeys ]).includes(item)));
+            allKeys = allKeys.filter(item => !(([key, ...childrenKeys]).includes(item)));
 
             // 判断父级状态 只要有后代选中就加入
             parentKeys.reverse().forEach(pk => {
@@ -119,14 +113,14 @@ export default class index extends Component {
 
         const { onChange } = this.props;
 
-        onChange && onChange(Array.from(new Set(allKeys)));
+        onChange?.call(this, Array.from(new Set(allKeys)));
     };
 
     handleSelectAll = (selected) => {
         const { allMenuKeys } = this.state;
         const { onChange } = this.props;
 
-        onChange && onChange(selected ? allMenuKeys : []);
+        onChange?.call(this, selected ? allMenuKeys : []);
     };
 
     render() {
