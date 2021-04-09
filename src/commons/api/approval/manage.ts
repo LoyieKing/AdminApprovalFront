@@ -14,7 +14,7 @@ export function getApprovalTables(): HttpResponse<ApprovalTable[]> {
     return axios.get("approvaltable")
 }
 
-export function updateApprovalTable(data: ApprovalTable): HttpResponse {
+export function updateApprovalTable(data: Partial<ApprovalTable>): HttpResponse {
     return axios.post("approvaltable/update", data)
 }
 

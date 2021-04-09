@@ -12,7 +12,7 @@ import {
 import EditModal from './EditModal';
 import './style.less';
 import { purifyResponse } from 'commons/utils';
-import { ApprovalTable, deleteApprovalTable, getApprovalTables } from 'commons/api/approval/manage';
+import { ApprovalTable, deleteApprovalTable, getApprovalTables, updateApprovalTable } from 'commons/api/approval/manage';
 import { getInfoClasses, InfoClass } from 'commons/api/approval/info/manage';
 import MenuSelect from 'pages/organizes/MenuSelect';
 
@@ -47,7 +47,8 @@ export default class ApprovalInfoManage extends Component {
         data: {} as Partial<ApprovalTable>,
         infoClasses: [] as InfoClass[],
         selectedOrganizes: [] as number[],
-        selectTableId: 0
+        selectTableId: 0,
+        selectTableName: null
     };
 
     form = React.createRef<FormInstance>()
@@ -105,15 +106,13 @@ export default class ApprovalInfoManage extends Component {
 
     handleSubmit = (values) => {
         if (this.state.loading) return;
-        const params = {
-            ...values,
-        };
+        const value = values?.name ?? ""
 
         // 一般系统中，角色不会太多，不做分页查询了
         this.setState({ loading: true })
         getApprovalTables()
             .then(resp => {
-                const dataSource = purifyResponse(resp.data)
+                const dataSource = purifyResponse(resp.data).filter(it => it.name.indexOf(value) != -1 || it.category.indexOf(value) != -1)
                 this.setState({ dataSource })
             })
             .finally(() => this.setState({ loading: false }))
@@ -137,7 +136,24 @@ export default class ApprovalInfoManage extends Component {
 
     handleRowClick(index: number) {
         const selectData = this.state.dataSource[index]
-        this.setState({ selectTableId: selectData.id, })
+        this.setState({ selectTableId: selectData.id, selectedOrganizes: selectData.ownerOrganizes, selectTableName: selectData.name, data: selectData })
+    }
+
+    handleSaveOrganizes() {
+        const data = { ...this.state.data }
+        data.ownerOrganizes = this.state.selectedOrganizes
+        this.setState({ loading: true })
+        updateApprovalTable(data)
+            .then(resp => {
+                if (resp.data.success) {
+                    message.success("保存可用组织成功！")
+                    this.handleSubmit({})
+
+                } else {
+                    purifyResponse(resp.data)
+                }
+            })
+            .finally(() => this.setState({ loading: false }))
     }
 
     render() {
@@ -146,6 +162,7 @@ export default class ApprovalInfoManage extends Component {
             dataSource,
             visible,
             selectTableId,
+            selectTableName
         } = this.state;
 
         const formProps = {
@@ -168,6 +185,10 @@ export default class ApprovalInfoManage extends Component {
                                 <Button onClick={() => this.form.current.resetFields()}>重置</Button>
                                 <Button type="primary" onClick={() => this.setState({ visible: true, data: {} })}>添加</Button>
                             </FormElement>
+                            <div className="role-menu-tip">
+                                {selectTableName ? <span>当前审批表：「{selectTableName}」</span> : <span>请在左侧列表中选择一个审批表！</span>}
+                                <Button disabled={!selectTableName} type="primary" onClick={() => this.handleSaveOrganizes()}>保存可用组织</Button>
+                            </div>
                         </FormRow>
                     </Form>
                 </QueryBar>
@@ -191,9 +212,9 @@ export default class ApprovalInfoManage extends Component {
                         />
                     </Col>
                     <Col flex="10">
-                        <MenuSelect value={this.state.selectedOrganizes}
-                            onChange={(value) => this.setState({ selectedOrganizes: value })}
-                        />
+                        <MenuSelect
+                            value={this.state.selectedOrganizes}
+                            onChange={(value) => this.setState({ selectedOrganizes: value })} />
                     </Col>
                 </Row>
                 <EditModal

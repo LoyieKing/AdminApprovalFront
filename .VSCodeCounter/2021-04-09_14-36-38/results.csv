@@ -1,0 +1,289 @@
+"filename", "language", "JavaScript", "JavaScript React", "TypeScript React", "Less", "CSS", "TypeScript", "JSON", "Markdown", "Properties", "HTML", "Log", "comment", "blank", "total"
+"/Users/admin/mysrcs/AdminApprovalFront/README.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 108, 0, 0, 0, 0, 31, 139
+"/Users/admin/mysrcs/AdminApprovalFront/config/dll/reactVendor-manifest.json", "JSON", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/config/dll/reactVendor_4d7df80752767b89ebdf.dll.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 43
+"/Users/admin/mysrcs/AdminApprovalFront/config/dll/vendor-manifest.json", "JSON", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/config/dll/vendor_4d7df80752767b89ebdf.dll.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 28
+"/Users/admin/mysrcs/AdminApprovalFront/config/env.js", "JavaScript", 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 11, 106
+"/Users/admin/mysrcs/AdminApprovalFront/config/getHttpsConfig.js", "JavaScript", 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 9, 67
+"/Users/admin/mysrcs/AdminApprovalFront/config/modules.js", "JavaScript", 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 26, 142
+"/Users/admin/mysrcs/AdminApprovalFront/config/paths.js", "JavaScript", 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 11, 72
+"/Users/admin/mysrcs/AdminApprovalFront/config/pnpTs.js", "JavaScript", 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 36
+"/Users/admin/mysrcs/AdminApprovalFront/config/route-loader.js", "JavaScript", 153, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 46, 227
+"/Users/admin/mysrcs/AdminApprovalFront/config/webpack.config.js", "JavaScript", 412, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 285, 16, 713
+"/Users/admin/mysrcs/AdminApprovalFront/config/webpack.dll.config.js", "JavaScript", 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 50
+"/Users/admin/mysrcs/AdminApprovalFront/config/webpackDevServer.config.js", "JavaScript", 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 6, 131
+"/Users/admin/mysrcs/AdminApprovalFront/docs/AJAX.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 90, 0, 0, 0, 0, 19, 109
+"/Users/admin/mysrcs/AdminApprovalFront/docs/GEN.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 12, 72
+"/Users/admin/mysrcs/AdminApprovalFront/docs/LAYOUT.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 59, 0, 0, 0, 0, 14, 73
+"/Users/admin/mysrcs/AdminApprovalFront/docs/MENU.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 5, 30
+"/Users/admin/mysrcs/AdminApprovalFront/docs/MOCK.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 13, 85
+"/Users/admin/mysrcs/AdminApprovalFront/docs/MODAL_PAGE.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 11, 58
+"/Users/admin/mysrcs/AdminApprovalFront/docs/MODEL.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 251, 0, 0, 0, 0, 59, 310
+"/Users/admin/mysrcs/AdminApprovalFront/docs/NGINX.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 127, 0, 0, 0, 0, 14, 141
+"/Users/admin/mysrcs/AdminApprovalFront/docs/OTHER.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 36, 0, 0, 0, 0, 11, 47
+"/Users/admin/mysrcs/AdminApprovalFront/docs/PAGE.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 95, 0, 0, 0, 0, 23, 118
+"/Users/admin/mysrcs/AdminApprovalFront/docs/PERMISSION.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 7, 32
+"/Users/admin/mysrcs/AdminApprovalFront/docs/PROXY.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 9, 30
+"/Users/admin/mysrcs/AdminApprovalFront/docs/README.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 7, 52
+"/Users/admin/mysrcs/AdminApprovalFront/docs/ROUTE.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 44, 0, 0, 0, 0, 8, 52
+"/Users/admin/mysrcs/AdminApprovalFront/docs/START.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 20, 80
+"/Users/admin/mysrcs/AdminApprovalFront/docs/STYLE.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 10, 42
+"/Users/admin/mysrcs/AdminApprovalFront/docs/_coverpage.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 5, 12
+"/Users/admin/mysrcs/AdminApprovalFront/docs/_sidebar.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 1, 17
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/antd.min.css", "CSS", 0, 0, 0, 0, 24706, 0, 0, 0, 0, 0, 0, 25, 1, 24732
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/asset-manifest.json", "JSON", 0, 0, 0, 0, 0, 0, 68, 0, 0, 0, 0, 0, 0, 68
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/index.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/manifest.json", "JSON", 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 1, 16
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/precache-manifest.162c142352bab166dfa0066a83023063.js", "JavaScript", 182, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 182
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/precache-manifest.8e10303f3508a0f5bc3a311652ad4041.js", "JavaScript", 126, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 126
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/precache-manifest.90de84f490c46897bac0e9a486a70872.js", "JavaScript", 182, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 182
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/precache-manifest.ad50403984fbd28c799d4e82068a9b70.js", "JavaScript", 182, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 182
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/precache-manifest.e1f39ccc423799a58730a0c35faf74c1.js", "JavaScript", 126, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 126
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/precache-manifest.e8b90b9735fed049e1418352398a16fb.js", "JavaScript", 182, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 182
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/service-worker.js", "JavaScript", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 8, 40
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/10.e52b1923.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/11.ef9b3fec.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/13.cd9bebb0.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/14.acc0c57d.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/15.26ba442e.chunk.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/2.0e5fe661.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/2.48a77e21.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/2.e6157a56.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/3.48bf13c9.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/3.a4d804a2.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/4.6c5f24a7.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/4.8e9afd67.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/4.e55e7e67.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/5.480acc6e.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/5.487de9c6.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/5.5117689a.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/5.9adaf640.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/6.22df6a94.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/7.26ba442e.chunk.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/8.ce064712.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/8.eba20bf2.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/9.7112efb3.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/9.898172fa.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/main.3811ac11.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/main.4813b85f.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/main.5af4872f.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/css/main.9e05d152.chunk.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/10.2e0d2883.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/10.58a8a03c.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/10.8a3c8a06.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/11.790498ac.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/11.b3c770c5.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/11.e628ff0a.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/12.4b663524.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/12.b21079ac.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/12.ce440f3a.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/13.61f498d3.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/13.7df905c7.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/13.e030edc8.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/14.3cbf6140.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/14.47abbe11.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/14.6606b982.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/15.5ef7096c.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/15.a19dfec0.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/15.e85a7f81.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/16.834c635c.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/17.82ef266b.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/18.2029092d.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/19.627e797c.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/2.5c258d60.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/2.cb2a63c1.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/2.cc58408a.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/20.7a6ca9a5.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/21.4aff8b4e.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/22.c0b44b6d.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/23.6685a99a.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/24.635a49a5.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/25.6388233a.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/3.0465600e.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/3.56265d13.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/3.88158476.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/4.59fc87fa.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/4.734ed774.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/4.8c488653.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/5.35627b5d.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/5.52ace062.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/5.8fce10bc.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/6.146ad295.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/6.1fa97838.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/6.952dbe24.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/7.18ec7c52.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/7.db380421.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/7.fb278e38.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/8.759f75c9.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/8.8417d7c4.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/8.f7c0e9a6.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/9.0170b136.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/9.b19721a7.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/9.bc0d29f6.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/main.0f012487.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/main.a7b8313f.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/main.aee23aaa.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/main.c1d4628c.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/main.cd89c00e.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/main.ecacc641.chunk.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/reactVendor_176180990e8e122c54da.dll.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 43
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/reactVendor_45666092243205e01b0c.dll.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 43
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/reactVendor_4d7df80752767b89ebdf.dll.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 43
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/runtime-main.61db73bf.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/runtime-main.62169a42.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/runtime-main.7eda95ad.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/runtime-main.95669797.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/vendor_176180990e8e122c54da.dll.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 28
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/vendor_45666092243205e01b0c.dll.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 28
+"/Users/admin/mysrcs/AdminApprovalFront/docs/build/static/js/vendor_4d7df80752767b89ebdf.dll.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 28
+"/Users/admin/mysrcs/AdminApprovalFront/docs/index.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 74, 0, 0, 4, 78
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/css/dark-mode@0.6.1.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/docsify.js", "JavaScript", 4253, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 546, 955, 5754
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/docsify.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/js/codefund.js", "JavaScript", 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 56
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/js/dark-mode@0.6.1.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/js/prism-bash.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/js/prism-markdown.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/js/prism-nginx.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/disqus.js", "JavaScript", 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 9, 56
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/disqus.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/emoji.js", "JavaScript", 1522, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 1527
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/emoji.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/external-script.js", "JavaScript", 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 29
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/external-script.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/front-matter.js", "JavaScript", 382, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53, 62, 497
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/front-matter.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/ga.js", "JavaScript", 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 9, 44
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/ga.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/gitalk.js", "JavaScript", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 6, 28
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/gitalk.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/matomo.js", "JavaScript", 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8, 43
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/matomo.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/search.js", "JavaScript", 311, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 71, 392
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/search.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/zoom-image.js", "JavaScript", 491, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 139, 656
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/plugins/zoom-image.min.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/themes/buble.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/themes/dark.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/themes/dolphin.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/themes/pure.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/docs/lib/themes/vue.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/admin/mysrcs/AdminApprovalFront/nginx-conf/nginx.conf", "Properties", 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 4, 5, 41
+"/Users/admin/mysrcs/AdminApprovalFront/package-lock.bak.json", "JSON", 0, 0, 0, 0, 0, 0, 14894, 0, 0, 0, 0, 0, 1, 14895
+"/Users/admin/mysrcs/AdminApprovalFront/package.json", "JSON", 0, 0, 0, 0, 0, 0, 209, 0, 0, 0, 0, 0, 1, 210
+"/Users/admin/mysrcs/AdminApprovalFront/public/antd.min.css", "CSS", 0, 0, 0, 0, 24706, 0, 0, 0, 0, 0, 0, 25, 1, 24732
+"/Users/admin/mysrcs/AdminApprovalFront/public/index.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 80, 0, 0, 8, 88
+"/Users/admin/mysrcs/AdminApprovalFront/public/manifest.json", "JSON", 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 1, 16
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/build.js", "JavaScript", 172, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 25, 221
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/config-data.json", "JSON", 0, 0, 0, 0, 0, 0, 533, 0, 0, 0, 0, 0, 1, 534
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/config.conf", "Properties", 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 41, 11, 63
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/config.js", "JavaScript", 427, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 115, 585
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/index.js", "JavaScript", 91, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 119
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/my-sql.js", "JavaScript", 78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 100
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/routes.js", "JavaScript", 94, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 113
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/templates/columns.js", "JavaScript", 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 6, 58
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/templates/edit-hooks.js", "JavaScript", 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 14, 99
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/templates/edit-modal-hooks.js", "JavaScript", 77, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 13, 94
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/templates/edit-modal.js", "JavaScript", 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 14, 114
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/templates/edit.js", "JavaScript", 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 18, 121
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/templates/list-hooks.js", "JavaScript", 206, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 29, 242
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/templates/list.js", "JavaScript", 232, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 25, 261
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/test.js", "JavaScript", 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 9, 33
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/gen/util.js", "JavaScript", 480, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 105, 601
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/start.js", "JavaScript", 133, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 19, 173
+"/Users/admin/mysrcs/AdminApprovalFront/scripts/test.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 11, 54
+"/Users/admin/mysrcs/AdminApprovalFront/src/App.js", "JavaScript", 78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 17, 99
+"/Users/admin/mysrcs/AdminApprovalFront/src/antd.less", "Less", 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 8, 4, 15
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/ajax.js", "JavaScript", 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 11, 81
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/api/approval/info/manage.ts", "TypeScript", 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 4, 23
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/api/approval/manage.ts", "TypeScript", 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 4, 23
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/api/axios.ts", "TypeScript", 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 3, 19
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/api/organize.ts", "TypeScript", 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 4, 11, 55
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/api/role.ts", "TypeScript", 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 5, 25
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/api/types.ts", "TypeScript", 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 18, 8, 39
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/api/user.ts", "TypeScript", 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 9, 10, 68
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/config-hoc.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 2, 16
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/handle-error.js", "JavaScript", 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 17, 55
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/handle-success.js", "JavaScript", 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/index.ts", "TypeScript", 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 42, 26, 115
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/types.d.ts", "TypeScript", 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1, 9
+"/Users/admin/mysrcs/AdminApprovalFront/src/commons/utils.ts", "TypeScript", 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 4, 29
+"/Users/admin/mysrcs/AdminApprovalFront/src/components/batch-delete-confirm/index.jsx", "JavaScript React", 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 26
+"/Users/admin/mysrcs/AdminApprovalFront/src/components/error/Error404.jsx", "JavaScript React", 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 18
+"/Users/admin/mysrcs/AdminApprovalFront/src/components/permission/index.jsx", "JavaScript React", 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 8, 49
+"/Users/admin/mysrcs/AdminApprovalFront/src/components/tree-editor/TreeModal.jsx", "JavaScript React", 0, 225, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 255
+"/Users/admin/mysrcs/AdminApprovalFront/src/components/tree-editor/index.js", "JavaScript", 59, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 64
+"/Users/admin/mysrcs/AdminApprovalFront/src/components/tree-editor/style.less", "Less", 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 11, 67
+"/Users/admin/mysrcs/AdminApprovalFront/src/config/config.default.js", "JavaScript", 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 9, 33
+"/Users/admin/mysrcs/AdminApprovalFront/src/config/config.development.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/src/config/config.production.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/src/config/config.test.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/admin/mysrcs/AdminApprovalFront/src/config/index.js", "JavaScript", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 20
+"/Users/admin/mysrcs/AdminApprovalFront/src/index.css", "CSS", 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 20, 14, 76
+"/Users/admin/mysrcs/AdminApprovalFront/src/index.dark.less", "Less", 0, 0, 0, 92, 0, 0, 0, 0, 0, 0, 0, 8, 25, 125
+"/Users/admin/mysrcs/AdminApprovalFront/src/index.js", "JavaScript", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 7, 32
+"/Users/admin/mysrcs/AdminApprovalFront/src/index.mobile.css", "CSS", 0, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 7, 14, 73
+"/Users/admin/mysrcs/AdminApprovalFront/src/layouts/header-user/ModifyPassword.jsx", "JavaScript React", 0, 90, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 100
+"/Users/admin/mysrcs/AdminApprovalFront/src/layouts/header-user/index.jsx", "JavaScript React", 0, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 53
+"/Users/admin/mysrcs/AdminApprovalFront/src/layouts/index.jsx", "JavaScript React", 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 37
+"/Users/admin/mysrcs/AdminApprovalFront/src/layouts/style.less", "Less", 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 2, 15
+"/Users/admin/mysrcs/AdminApprovalFront/src/menus.js", "JavaScript", 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 13, 54
+"/Users/admin/mysrcs/AdminApprovalFront/src/mock/index.js", "JavaScript", 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 11
+"/Users/admin/mysrcs/AdminApprovalFront/src/mock/mock-roles.js", "JavaScript", 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 42
+"/Users/admin/mysrcs/AdminApprovalFront/src/mock/mock-users.js", "JavaScript", 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 54
+"/Users/admin/mysrcs/AdminApprovalFront/src/mock/mockdata/organizations.js", "JavaScript", 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 59
+"/Users/admin/mysrcs/AdminApprovalFront/src/mock/mockdata/roles.js", "JavaScript", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"/Users/admin/mysrcs/AdminApprovalFront/src/mock/mockdata/user.js", "JavaScript", 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 73
+"/Users/admin/mysrcs/AdminApprovalFront/src/mock/simplify.js", "JavaScript", 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 4, 38
+"/Users/admin/mysrcs/AdminApprovalFront/src/mock/url-config.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3
+"/Users/admin/mysrcs/AdminApprovalFront/src/models/index.js", "JavaScript", 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 33
+"/Users/admin/mysrcs/AdminApprovalFront/src/models/models.js", "JavaScript", 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 12, 48
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/approval/info/manage/EditModal.tsx", "TypeScript React", 0, 0, 107, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 118
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/approval/info/manage/index.tsx", "TypeScript React", 0, 0, 162, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 178
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/approval/info/manage/style.less", "Less", 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 4, 21
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/approval/manage/EditModal.tsx", "TypeScript React", 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 96
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/approval/manage/index.tsx", "TypeScript React", 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 1, 18, 210
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/approval/manage/style.less", "Less", 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 4, 21
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/examples/table-editable/index.jsx", "JavaScript React", 0, 93, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 102
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/gen/Fast.jsx", "JavaScript React", 0, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 16, 199
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/gen/PreviewModal.jsx", "JavaScript React", 0, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 48
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/gen/Single.jsx", "JavaScript React", 0, 702, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 99, 811
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/gen/SourceCode.jsx", "JavaScript React", 0, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 66
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/gen/index.jsx", "JavaScript React", 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 32
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/gen/style.less", "Less", 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 2, 13
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/gen/util.js", "JavaScript", 159, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 34, 196
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/home/index.jsx", "JavaScript React", 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 24
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/home/style.less", "Less", 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/iframe/index.jsx", "JavaScript React", 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 25
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/iframe/style.less", "Less", 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 12
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/login/banner/index.jsx", "JavaScript React", 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 34
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/login/banner/style.less", "Less", 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 0, 0, 8, 59
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/login/index.jsx", "JavaScript React", 0, 142, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 14, 158
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/login/style.less", "Less", 0, 0, 0, 77, 0, 0, 0, 0, 0, 0, 0, 1, 15, 93
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/menus/MenuSelect.jsx", "JavaScript React", 0, 122, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 30, 162
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/menus/index.tsx", "TypeScript React", 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 3, 18, 121
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/menus/style.less", "Less", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/organizes/BatchAddModal.jsx", "JavaScript React", 0, 107, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 118
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/organizes/EditModal.tsx", "TypeScript React", 0, 0, 94, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 108
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/organizes/MenuSelect.tsx", "TypeScript React", 0, 0, 123, 0, 0, 0, 0, 0, 0, 0, 0, 7, 26, 156
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/organizes/cat/EditModal.tsx", "TypeScript React", 0, 0, 89, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 102
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/organizes/cat/index.tsx", "TypeScript React", 0, 0, 142, 0, 0, 0, 0, 0, 0, 0, 0, 4, 15, 161
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/organizes/index.tsx", "TypeScript React", 0, 0, 144, 0, 0, 0, 0, 0, 0, 0, 0, 3, 14, 161
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/organizes/style.less", "Less", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/page-routes.js", "JavaScript", 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 5, 37
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/roles/EditModal.tsx", "TypeScript React", 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 112
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/roles/index.tsx", "TypeScript React", 0, 0, 213, 0, 0, 0, 0, 0, 0, 0, 0, 1, 20, 234
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/roles/style.less", "Less", 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 4, 21
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/user-center/index.jsx", "JavaScript React", 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 25
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/users/EditModal.tsx", "TypeScript React", 0, 0, 132, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 147
+"/Users/admin/mysrcs/AdminApprovalFront/src/pages/users/index.tsx", "TypeScript React", 0, 0, 171, 0, 0, 0, 0, 0, 0, 0, 0, 6, 20, 197
+"/Users/admin/mysrcs/AdminApprovalFront/src/router/AppRouter.jsx", "JavaScript React", 0, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 15, 91
+"/Users/admin/mysrcs/AdminApprovalFront/src/router/AuthRoute.jsx", "JavaScript React", 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 33
+"/Users/admin/mysrcs/AdminApprovalFront/src/router/routes.js", "JavaScript", 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 6, 33
+"/Users/admin/mysrcs/AdminApprovalFront/src/serviceWorker.js", "JavaScript", 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 13, 136
+"/Users/admin/mysrcs/AdminApprovalFront/src/setupProxy.js", "JavaScript", 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 15
+"/Users/admin/mysrcs/AdminApprovalFront/src/theme.less", "Less", 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 1, 3, 21
+"/Users/admin/mysrcs/AdminApprovalFront/tsconfig.json", "JSON", 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 47, 0, 63
+"/Users/admin/mysrcs/AdminApprovalFront/yarn-error.log", "Log", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10295, 0, 1521, 11816
+"Total", "-", 12505, 2121, 1855, 385, 49537, 256, 15752, 1220, 43, 155, 10295, 2104, 4636, 100864

@@ -105,7 +105,7 @@ export default class EditModal extends Component<EditModalProp> {
                             </FormElement>
                         </Col>
                         <Col flex="1">
-                            <FormElement {...formProps} label="可复用" name="reusable" valuePropName="checked" required>
+                            <FormElement {...formProps} label="可复用" name="reusable" valuePropName="checked">
                                 <Checkbox />
                             </FormElement>
                         </Col>
