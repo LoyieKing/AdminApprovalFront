@@ -27,3 +27,17 @@ export function purifyResponse<T>(resp: Response<T>, onError?: (resp: Response<T
         throw resp
     }
 }
+
+
+type StringKeysOf<T> = {
+    [P in keyof T]: T[P] extends string ? P : never
+}[keyof T]
+
+export function propertyContains<T>(props: StringKeysOf<T>[], keyword: string): (value: T) => boolean {
+    return function (value: T): boolean {
+        return props.some(p => {
+            const v = value[p] as any as string
+            return v.indexOf(keyword) != -1
+        })
+    }
+}

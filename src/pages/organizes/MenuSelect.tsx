@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import { Button, message } from 'antd';
 import { Icon } from 'ra-lib';
 import config from 'commons/config-hoc';
-import { PageContent } from 'ra-lib';
 import { tree } from 'ra-lib';
 import { Table, ToolBar, Operator } from 'ra-lib';
-import EditModal from './EditModal';
-import BatchAddModal from './BatchAddModal';
 import './style.less';
 import { deleteOrganize, getOrganizeCats, getOrganizes, Organize, OrganizeCat } from 'commons/api/organize';
 import { purifyResponse } from 'commons/utils';
 import { TableDataSource } from 'commons/types';
+import { number } from 'prop-types';
 
 
 type MenuSelectProps = {

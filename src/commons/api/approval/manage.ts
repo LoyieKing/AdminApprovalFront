@@ -1,3 +1,4 @@
+import { func } from "prop-types";
 import axios from "../axios";
 import { HttpResponse } from "../types";
 import { InfoClass } from "./info/manage";
