@@ -1,5 +1,4 @@
 import { ajax as SXAjax, createHoc, createHooks } from 'ra-lib';
-import mockUrls from '../mock/url-config';
 import handleError from './handle-error';
 import handleSuccess from './handle-success';
 import cfg from 'src/config';
@@ -60,7 +59,7 @@ const {
 
 // 判断请求是否是mock
 function isMock(url /* url, data, method, options */) {
-    return mockUrls.indexOf(url) > -1 || url.startsWith('/mock');
+    return false
 }
 
 // hooks
