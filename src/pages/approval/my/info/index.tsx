@@ -12,6 +12,7 @@ import {
 import './style.less'
 import { propertyContains, purifyResponse } from 'commons/utils';
 import { getInfoInstances, InfoInstance } from 'commons/api/approval/info/instance';
+import { renderApprovalState } from 'components/ApprovalState';
 
 
 @config({
@@ -36,7 +37,7 @@ export default class ApprovalInfoManage extends Component {
         { title: '分类', dataIndex: 'category', with: 150 },
         { title: '过期时间', dataIndex: 'expired', with: 150 },
         { title: '值', dataIndex: 'value', with: 150 },
-        { title: '状态', dataIndex: 'status', with: 150 }
+        { title: '状态', dataIndex: 'status', with: 150, render: renderApprovalState }
     ];
 
     componentDidMount() {

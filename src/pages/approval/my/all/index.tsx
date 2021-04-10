@@ -14,6 +14,7 @@ import { propertyContains, purifyResponse } from 'commons/utils';
 import { ApprovalTable } from 'commons/api/approval/manage';
 import { getInfoClasses, InfoClass } from 'commons/api/approval/info/manage';
 import { getApprovalInstances, getWaitingApprovalInstances } from 'commons/api/approval/instance';
+import { ApprovalState, renderApprovalState } from 'components/ApprovalState';
 
 
 const cats = [
@@ -56,7 +57,7 @@ export default class ApprovalInfoManage extends Component {
         { title: '审批表', dataIndex: 'prototype', width: 150 },
         { title: '描述', dataIndex: 'desc', with: 150 },
         { title: '发起人', dataIndex: 'creator', with: 150 },
-        { title: '状态', dataIndex: 'state', with: 150 },
+        { title: '状态', dataIndex: 'state', with: 150, render: renderApprovalState },
     ];
 
     componentDidMount() {

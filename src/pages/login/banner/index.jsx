@@ -21,10 +21,10 @@ export default class index extends Component {
         return (
             <div styleName={isMount ? 'root active' : 'root'}>
                 <div styleName="star">
-                    <img src={star} alt="星星"/>
+                    <img src={star} />
                 </div>
                 <div styleName="logo">
-                    <img src={logo} alt="图标"/>
+                    <img src={logo} />
                     <span>{appName}</span>
                 </div>
             </div>

@@ -23,6 +23,7 @@ export default config({
     id: number
     onOk: () => void
 }) => {
+    console.log(props)
     const { isEdit, id, onOk } = props;
     const [form] = Form.useForm();
     const [data, setData] = useState({});
