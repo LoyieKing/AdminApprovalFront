@@ -1,12 +1,13 @@
 import { storage } from 'ra-lib';
 import cfg from 'config';
+import getMenus from 'menus';
 
 const { baseName } = cfg;
 const sessionStorage = window.sessionStorage;
 
 const LOGIN_USER_STORAGE_KEY = 'login-user';
 
-type LoginUserInfo = {
+export type LoginUserInfo = {
     /**
      * 用户id
      */
@@ -85,9 +86,10 @@ export function isLogin(): boolean {
  */
 export function toHome() {
     // 跳转页面，优先跳转上次登出页面
-    const lastHref = window.sessionStorage.getItem('last-href');
-
-    locationHref(lastHref || '/');
+    const homekey = getLoginUser().permissions[0]
+    getMenus().then(menus => {
+        locationHref(menus.find(menu => menu.key == homekey)?.path ?? "/approval/my/new")
+    })
 }
 
 /**
@@ -105,8 +107,6 @@ export function toLogin() {
     // 清除相关数据
     storage.session.clear();
     sessionStorage.clear();
-    sessionStorage.setItem('last-href', window.location.pathname);
-
     locationHref(loginPath);
 
     return null;

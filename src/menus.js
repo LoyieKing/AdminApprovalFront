@@ -1,19 +1,13 @@
-// import {ajax} from 'src/commons/ajax';
-/*
-* 菜单数据 返回Promise各式，支持前端硬编码、异步获取菜单数据
-* */
-export default function getMenus(userId) {
-    // return ajax.get('/menus', {userId}).then(res => {
-    //     return (res || []).map(item => ({key: item.id, parentKey: item.parentId, ...item}));
-    // });
 
-    // TODO 根据userId获取菜单数据 或在此文件中前端硬编码菜单
+export default function getMenus() {
     return Promise.resolve([
         { key: 'system', text: '系统管理', icon: 'user', order: 900 },
         { key: 'user', parentKey: 'system', text: '用户管理', icon: 'user', path: '/users', order: 900 },
         { key: 'organize', parentKey: 'system', text: '组织管理', icon: 'align-left', order: 900 },
         { key: 'organizemanage', parentKey: 'organize', text: '组织管理', icon: 'align-left', path: '/organizes', order: 900 },
         { key: 'organizecatnamage', parentKey: 'organize', text: '组织类型管理', icon: 'align-left', path: '/organize/cat', order: 900 },
+        { key: 'userorg', parentKey: 'system', text: '用户组织管理', icon: 'align-left', path: '/userorg', order: 900 },
+
 
         { key: 'role', parentKey: 'system', text: '角色管理', icon: 'lock', path: '/roles', order: 900 },
 
@@ -37,9 +31,3 @@ export default function getMenus(userId) {
     ]);
 
 }
-
-
-/*
-菜单数据主键也可以是：id parentId
-角色字段： id name description
-* */

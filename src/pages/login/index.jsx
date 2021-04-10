@@ -51,14 +51,16 @@ export default class Login extends Component {
 
 
         this.setState({ loading: true, message: '' });
-        login(username, password, code, this.vcodeSession??"")
+        login(username, password, code, this.vcodeSession ?? "")
             .then(res => {
                 if (res.data.success) {
                     var token = res.data.data;
                     console.log(token)
                     let payloadStr = window.atob(token.split('.')[1])
                     let payload = JSON.parse(payloadStr)
-                    setLoginUser({ username, password, token, id: payload.id })
+                    console.log("payload:")
+                    console.log(payload)
+                    setLoginUser({ username, password, token, id: payload.id, permissions: payload.permissions })
                     toHome();
                 } else {
                     this.setState({ message: res.data.message })

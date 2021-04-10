@@ -30,6 +30,7 @@ export function outLogin(): HttpResponse {
 }
 
 export type UserEntity = {
+    id: number
     userName: string;
     realName: string;
     avatar?: string;
