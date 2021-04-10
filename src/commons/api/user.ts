@@ -67,3 +67,7 @@ export function deleteUser(id: number): HttpResponse<never> {
 export function deleteUsers(ids: number[]): HttpResponse<never> {
     return axios.post(`sysmanage/user/deletes`, ids)
 }
+
+export function revisePassword(id: number, oldpwd: string, newpwd: string): HttpResponse {
+    return axios.post(`sysmanage/user/RevisePassword`, undefined, { params: { id, oldpwd, newpwd } })
+}

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Form } from 'antd';
+import { Form, message } from 'antd';
 import config from 'src/commons/config-hoc';
 import { FormElement, ModalContent, PageContent } from 'ra-lib';
+import { revisePassword } from 'commons/api/user';
+import { purifyResponse } from 'commons/utils';
 
 @config({
     ajax: true,
@@ -20,10 +22,16 @@ export default class ModifyPassword extends Component {
         if (this.state.loading) return;
         const { onOk } = this.props;
 
+        const { id, oldpwd, newpwd } = values
+
         this.setState({ loading: true });
-        this.props.ajax.put('/updatePassword', values, { successTip: '密码设置成功！' })
-            .then(() => {
-                if (onOk) onOk();
+        revisePassword(id, oldpwd, newpwd)
+            .then(resp => {
+                if (resp.data.success) {
+                    message.success("修改密码成功！")
+                } else {
+                    purifyResponse(resp.data)
+                }
             })
             .finally(() => this.setState({ loading: false }));
     };
@@ -48,7 +56,7 @@ export default class ModifyPassword extends Component {
             >
                 <PageContent>
                     <Form ref={form => this.form = form} onFinish={this.handleOk} initialValues={{ id }}>
-                        <FormElement type="hidden" name="id"/>
+                        <FormElement type="hidden" name="id" />
 
                         <FormElement
                             label="当前账号"
@@ -61,7 +69,7 @@ export default class ModifyPassword extends Component {
                             label="原密码"
                             labelWidth={labelWidth}
                             type="password"
-                            name="oldPassword"
+                            name="oldpwd"
                             autoFocus
                             placeholder="第一次设置密码，原密码可以为空"
                         />
@@ -69,7 +77,7 @@ export default class ModifyPassword extends Component {
                             label="新密码"
                             labelWidth={labelWidth}
                             type="password"
-                            name="password"
+                            name="newpwd"
                             required
                         />
                         <FormElement
@@ -77,12 +85,12 @@ export default class ModifyPassword extends Component {
                             labelWidth={labelWidth}
                             type="password"
                             name="reNewPassword"
-                            dependencies={[ 'password' ]}
+                            dependencies={['password']}
                             required
                             rules={[
                                 ({ getFieldValue }) => ({
                                     validator(rule, value) {
-                                        if (!value || getFieldValue('password') === value) {
+                                        if (!value || getFieldValue('newpwd') === value) {
                                             return Promise.resolve();
                                         }
                                         return Promise.reject('新密码与确认新密码不同！');
