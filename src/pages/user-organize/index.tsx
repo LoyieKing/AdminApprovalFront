@@ -61,7 +61,6 @@ export default class ApprovalInfoManage extends Component {
                     {
                         label: '修改',
                         onClick: (e) => {
-                            alert(JSON.stringify(record))
                             e.stopPropagation();
                             console.log(record);
                             this.setState({ visible: true, data: record });
