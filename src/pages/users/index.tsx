@@ -94,7 +94,7 @@ export default config({
         if (resp.success) {
             const res = resp.data
             setDataSource(res.rows);
-            setTotal(res?.total || 0);
+            setTotal(res?.rows?.length || 0);
         } else if (resp.success === false) {
             message.error(resp.message)
         }

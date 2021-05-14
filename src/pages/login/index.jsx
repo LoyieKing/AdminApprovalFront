@@ -4,7 +4,7 @@ import { Input, Button, Form, Image, Popover } from 'antd';
 import { LockOutlined, ReloadOutlined, RobotOutlined, UserOutlined } from '@ant-design/icons';
 import { setLoginUser, toHome } from 'src/commons';
 import config from 'src/commons/config-hoc';
-import Banner from './banner/index';
+import Banner from './banner';
 import './style.less';
 import { getAuthCode, login } from '../../commons/api/user';
 // import { getAuthCode } from 'src/commons/api';

@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import { Button, Form, Row, Col, FormInstance, message, Tag } from 'antd';
+import { Button, Form, FormInstance } from 'antd';
 import { PageContent } from 'ra-lib';
 import config from 'commons/config-hoc';
 import {
     QueryBar,
     FormRow,
     FormElement,
-    Table,
-    Operator,
+    Table
 } from 'ra-lib';
 import './style.less'
 import { propertyContains, purifyResponse } from 'commons/utils';
-import { ApprovalTable, deleteApprovalTable, getApprovalTables, updateApprovalTable } from 'commons/api/approval/manage';
+import { ApprovalTable } from 'commons/api/approval/manage';
 import { getInfoClasses, InfoClass } from 'commons/api/approval/info/manage';
-import MenuSelect from 'pages/organizes/MenuSelect';
-import { getApprovalInstances, getWaitingApprovalInstances } from 'commons/api/approval/instance';
+import { getWaitingApprovalInstances } from 'commons/api/approval/instance';
 
 
 
@@ -68,10 +66,7 @@ export default class ApprovalInfoManage extends Component {
     render() {
         const {
             loading,
-            dataSource,
-            visible,
-            selectTableId,
-            selectTableName
+            dataSource
         } = this.state;
 
         const formProps = {

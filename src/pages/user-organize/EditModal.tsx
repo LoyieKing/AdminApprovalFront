@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Col, Form, FormInstance, Input, InputNumber, message, Row, Select } from 'antd';
+import { Form, FormInstance, InputNumber, message, Select } from 'antd';
 import { FormElement } from 'ra-lib';
 import config from 'commons/config-hoc';
 import { ModalContent } from 'ra-lib';
 import { purifyResponse } from 'commons/utils';
-import { InfoClass, updateInfoClasses } from 'commons/api/approval/info/manage';
-import Checkbox from 'antd/lib/checkbox/Checkbox';
 import { UserEntity } from 'commons/api/user';
 import { Organize } from 'commons/api/organize';
 import { Option } from 'antd/lib/mentions';
@@ -24,7 +22,7 @@ type EditModalProp = {
 @config({
     ajax: true,
     modal: {
-        title: props => props.isEdit ? '修改' : '添加',
+        title: (props: EditModalProp) => props.data.id !== undefined ? '修改' : '添加',
     },
 })
 export default class EditModal extends Component<EditModalProp> {
@@ -43,7 +41,8 @@ export default class EditModal extends Component<EditModalProp> {
     handleSubmit = (values) => {
         if (this.state.loading) return;
 
-        const successTip = this.props.data.id ? '修改成功！' : '添加成功！';
+        const editMode = this.props.data.id !== undefined
+        const successTip = editMode ? '修改成功！' : '添加成功！';
 
         this.setState({ loading: true })
         const data = values

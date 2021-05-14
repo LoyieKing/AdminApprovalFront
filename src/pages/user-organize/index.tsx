@@ -16,7 +16,7 @@ import { purifyResponse } from 'commons/utils';
 import { deleteInfoClass, getInfoClasses, InfoClass } from 'commons/api/approval/info/manage';
 import { getUsers, UserEntity } from 'commons/api/user';
 import { getOrganizes, Organize } from 'commons/api/organize';
-import { getUserOrganizes, UserOrganize } from 'commons/api/userorganize';
+import { deleteUserOrganize, getUserOrganizes, UserOrganize } from 'commons/api/userorganize';
 
 @config({
     path: '/userorg',
@@ -61,6 +61,7 @@ export default class ApprovalInfoManage extends Component {
                     {
                         label: '修改',
                         onClick: (e) => {
+                            alert(JSON.stringify(record))
                             e.stopPropagation();
                             console.log(record);
                             this.setState({ visible: true, data: record });
@@ -70,7 +71,7 @@ export default class ApprovalInfoManage extends Component {
                         label: '删除',
                         color: 'red',
                         confirm: {
-                            title: `您确定删除"${name}"?`,
+                            title: `确定删除?`,
                             onConfirm: (e) => {
                                 e.stopPropagation();
                                 this.handleDelete(id);
@@ -133,7 +134,7 @@ export default class ApprovalInfoManage extends Component {
         if (this.state.deleting) return;
 
         this.setState({ deleting: true });
-        deleteInfoClass(id)
+        deleteUserOrganize(id)
             .then(resp => {
                 if (resp.data.success) {
                     message.success("删除成功")
